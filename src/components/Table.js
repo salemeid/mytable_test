@@ -163,7 +163,7 @@ return(
             {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                    <th {...column.getHeaderProps}>{column.render('Header')}</th>
+                    <th key={column.index} {...column.getHeaderProps}>{column.render('Header')}</th>
                 ))}
                 </tr> 
             ))}
@@ -180,7 +180,7 @@ return(
                 row.cells.map(cell => {
                 // Apply the cell props
                 return (
-                    <td {...cell.getCellProps()}>
+                    <td key={cell.index} {...cell.getCellProps()}>
                     {// Render the cell contents
                     cell.render('Cell')}
                     </td>

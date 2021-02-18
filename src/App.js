@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Table from './components/Table';
-import data from './list.json';
+// import data from './list.json';
 import styled from 'styled-components';
+import axios from 'axios';
 
 
 const Styles = styled.div`
@@ -60,6 +61,8 @@ table {
 
 
 
+
+
 const App = () => {
 
   // const [data, setData] = useState([]);
@@ -83,7 +86,13 @@ const App = () => {
   //     });
   // }
 
- 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/data')
+      .then(res => setData(res.data))
+   }, []);
+
   
 
 
@@ -92,31 +101,31 @@ const App = () => {
     () => [ 
       {
         Header: 'PRN', 
-        accessor: 'PRN', // accessor is the "key" in the data
+        accessor: 'prn', // accessor is the "key" in the data
       },
       {
         Header: 'NAME',
-        accessor: 'NAME',
+        accessor: 'stff_name',
       },
       {
         Header: 'FUNCTION',
-        accessor: 'FUNCTION',
+        accessor: 'job_func',
       },
       {
         Header: 'DEPARTMENT / SECTION',
-        accessor: 'DEPARTMENT / SECTION',
+        accessor: 'dept_sect',
       },
       {
         Header: 'OPERATIONS SIDE',
-        accessor: 'OPERATIONS SIDE',
+        accessor: 'ops_side',
       },
       {
         Header: 'DEMAND MNGR.',
-        accessor: 'DEMAND MNGR.',
+        accessor: 'demand_mngr',
       },
       {
         Header: 'WFP SCHEDULER',
-        accessor: 'WFP SCHEDULER',
+        accessor: 'wfp_scheduler',
       },
     ],
     []
