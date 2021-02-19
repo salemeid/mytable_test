@@ -1,21 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Ballet&display=swap');
-html{
+@import url("https://fonts.googleapis.com/css2?family=Ballet&display=swap");
+html {
   margin: 0;
   height: 100%;
-
-  background-repeat: no-repeat;
 }
 body {
   margin: 0;
   height: 100%;
-  font-family: 'Ballet', cursive;
+  font-family: "Ballet", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(2,3,89);
-  background: linear-gradient(36deg, rgba(2,3,89,1) 0%, rgba(0,96,25,1) 100%); 
-  
 }
 
 code {
-  font-family: 'Ballet', cursive;
+  font-family: "Ballet", cursive;
 }

@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  background: rgb(2,3,89);
-  background: linear-gradient(36deg, rgba(2,3,89,1) 0%, rgba(0,96,25,1) 100%); 
+  color: #282c34;
 }
 
 .App-logo {
@@ -9,7 +8,7 @@
   pointer-events: none;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -24,11 +23,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #282c34;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #282c34;
 }
 
 @keyframes App-logo-spin {
