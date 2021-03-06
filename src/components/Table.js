@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
 function GlobalFilter({
   preGlobalFilteredRows,
   globalFilter,
@@ -60,8 +61,42 @@ function GlobalFilter({
   )
 }
 
-const Table = ({columns, data}) => {
+const Table = ({data}) => {
 
+  const columns = React.useMemo(
+
+    () => [ 
+      {
+        Header: 'PRN', 
+        accessor: 'prn', // accessor is the "key" in the data
+      },
+      {
+        Header: 'NAME',
+        accessor: 'stff_name',
+      },
+      {
+        Header: 'FUNCTION',
+        accessor: 'job_func',
+      },
+      {
+        Header: 'DEPARTMENT / SECTION',
+        accessor: 'dept_sect',
+      },
+      {
+        Header: 'OPERATIONS SIDE',
+        accessor: 'ops_side',
+      },
+      {
+        Header: 'DEMAND MNGR.',
+        accessor: 'demand_mngr',
+      },
+      {
+        Header: 'WFP SCHEDULER',
+        accessor: 'wfp_scheduler',
+      },
+    ],
+    []
+  )
     
 
     const {
@@ -86,15 +121,8 @@ const Table = ({columns, data}) => {
       setGlobalFilter
     } = useTable({ columns, data, initialState: { pageIndex: 0 } },useFilters,useGlobalFilter,usePagination,);
 
-    // const [filterInput, setFilterInput] = useState("");
+    
 
-
-
-    // const handleFilterChange = (e) => {
-    //     const value = e.target.value || undefined;
-    //     setFilter("PRN", value);
-    //     setFilterInput(value)
-    // }
 return(
         
     <>

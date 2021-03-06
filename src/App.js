@@ -5,6 +5,15 @@ import Table from './components/Table';
 import styled from 'styled-components';
 import axios from 'axios';
 import Header from './components/Header';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import Roster from './components/Roster.js';
 
 
 const Styles = styled.div`
@@ -65,28 +74,6 @@ table {
 
 
 const App = () => {
-
-  // const [data, setData] = useState([]);
-  // const [data, setData] = useState([]);
-
-  // const getData=()=>{
-  //   fetch('./list.json'
-  //   ,{
-  //     headers : { 
-  //       'Content-Type': 'text'
-  //      }
-  //   }
-  //   )
-  //     .then(function(response){
-  //       console.log(response)
-  //       return response.json();
-  //     })
-  //     .then(function(myJson) {
-  //       console.log(myJson);
-  //       setData(myJson)
-  //     });
-  // }
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -95,60 +82,28 @@ const App = () => {
    }, []);
 
   
-
-
-  const columns = React.useMemo(
-
-    () => [ 
-      {
-        Header: 'PRN', 
-        accessor: 'prn', // accessor is the "key" in the data
-      },
-      {
-        Header: 'NAME',
-        accessor: 'stff_name',
-      },
-      {
-        Header: 'FUNCTION',
-        accessor: 'job_func',
-      },
-      {
-        Header: 'DEPARTMENT / SECTION',
-        accessor: 'dept_sect',
-      },
-      {
-        Header: 'OPERATIONS SIDE',
-        accessor: 'ops_side',
-      },
-      {
-        Header: 'DEMAND MNGR.',
-        accessor: 'demand_mngr',
-      },
-      {
-        Header: 'WFP SCHEDULER',
-        accessor: 'wfp_scheduler',
-      },
-    ],
-    []
-  )
-
-  // useEffect(()=>{
-  //   getData()
-  // },[])
-
-  // const listItems = data.map(item => <tr><td>{item.prn}</td><td>{item.name}</td></tr>)
-
   return (
-    // <ul>{listItems}</ul>
-    // <table><th>PRN</th><th>Name</th>{listItems}</table>
     <div>
     <div>
+    <Router>
     <Header />
-    </div>
-    <div>
-    <Styles>
-      <Table columns={columns} data={data} />
-    </Styles>
+
+    <Switch>
+          <Route path="/data">
+            <Styles>
+              <Table data={data} />
+            </Styles>
+          </Route>
+          <Route path="/roster">
+            <Roster />
+          </Route>
+          <Route path="/">
+          
+          </Route>
+        </Switch>
+    </Router>
+
+
     </div>
     </div>
      

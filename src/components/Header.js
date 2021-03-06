@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import image from '../assets/logo_sm.svg';
 import { CSSTransition } from "react-transition-group";
+import {Link, Router} from "react-router-dom";
+
 
 export default function Header() {
   const [isNavVisible, setNavVisibility] = useState(false);
@@ -39,14 +41,14 @@ export default function Header() {
         unmountOnExit
       >
         <nav className="Nav">
-          <a href="/">Search</a>
-          <a href="/">Roster</a>
-          <a href="/">Distrbution</a>
-          <a href="/">Contact</a>
+          <Link to="/data">Search</Link>
+          <Link to="/roster">Roster</Link>
+          <Link to="/">Distrbution</Link>
+          <Link to="/">Contact</Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="Burger">
-        🍔
+        +
       </button>
     </header>
   );
